@@ -1,7 +1,7 @@
 export interface ButtonList {
     id: number;
     name: string;
-    layout: number;
+    layout: 1 | 3 | 5 | 10;
 }
 
 export interface RadioList {
