@@ -6,8 +6,19 @@ const props = defineProps({
     buttonList: {
         type: Array as PropType<ButtonList[]>,
         required: true
+    },
+    layout: {
+        type: Number as PropType<1 | 3 | 5 | 10>,
+        required: true
     }
 });
+const emits = defineEmits(['update:layout']);
+
+const pickedLayout = (layout: 1 | 3 | 5 | 10) => {
+    if (props.layout === layout) return;
+
+    emits('update:layout', layout);
+};
 </script>
 
 <template>
@@ -15,6 +26,7 @@ const props = defineProps({
         <button
             v-for="btn in props.buttonList"
             :key="btn.id"
+            @click="pickedLayout(btn.layout)"
             class="button-mode"
         >
             {{ btn.name }}

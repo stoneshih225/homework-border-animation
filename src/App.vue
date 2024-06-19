@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Box from './components/Box/Box.vue';
 import Button from './components/Button/Button.vue';
 import Radio from './components/Radio/Radio.vue';
 import controllerConfig from './controllerConfig';
+
+const layout = ref<1 | 3 | 5 | 10>(1);
+const animationMode = ref<'All' | 'Random'>('All');
 </script>
 
 <template>
@@ -11,8 +15,14 @@ import controllerConfig from './controllerConfig';
             <Box />
         </div>
         <div class="controller-container">
-            <Button :buttonList="controllerConfig.buttonList" />
-            <Radio :radioList="controllerConfig.radioList" />
+            <Button
+                v-model:layout="layout"
+                :buttonList="controllerConfig.buttonList"
+            />
+            <Radio
+                v-model:animationMode="animationMode"
+                :radioList="controllerConfig.radioList"
+            />
         </div>
     </div>
 </template>
