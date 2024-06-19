@@ -12,7 +12,10 @@ const animationMode = ref<'All' | 'Random'>('All');
 <template>
     <div class="app">
         <div class="content-container">
-            <Box />
+            <Box
+                :layout="layout"
+                :animationMode="animationMode"
+            />
         </div>
         <div class="controller-container">
             <Button
