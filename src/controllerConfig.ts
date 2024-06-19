@@ -1,7 +1,7 @@
 export interface ButtonList {
     id: number;
     name: string;
-    mode: number;
+    layout: number;
 }
 
 export interface RadioList {
@@ -19,22 +19,22 @@ const controllerConfig: ControllerConfig = {
         {
             id: 1,
             name: '1x1',
-            mode: 1
+            layout: 1
         },
         {
             id: 2,
             name: '3x3',
-            mode: 3
+            layout: 3
         },
         {
             id: 3,
             name: '5x5',
-            mode: 5
+            layout: 5
         },
         {
             id: 4,
             name: '10x10',
-            mode: 10
+            layout: 10
         }
     ],
     radioList: [
