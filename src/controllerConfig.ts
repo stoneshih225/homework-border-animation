@@ -1,4 +1,4 @@
-export interface ButtonList {
+export interface LayoutButtonList {
     id: number;
     name: string;
     layout: 1 | 3 | 5 | 10;
@@ -10,12 +10,13 @@ export interface RadioList {
 }
 
 interface ControllerConfig {
-    buttonList: ButtonList[];
-    radioList: RadioList[];
+    layouts: LayoutButtonList[];
+    animationModes: RadioList[];
+    shapes: RadioList[];
 }
 
 const controllerConfig: ControllerConfig = {
-    buttonList: [
+    layouts: [
         {
             id: 1,
             name: '1x1',
@@ -37,7 +38,7 @@ const controllerConfig: ControllerConfig = {
             layout: 10
         }
     ],
-    radioList: [
+    animationModes: [
         {
             id: 1,
             name: 'All'
@@ -45,6 +46,16 @@ const controllerConfig: ControllerConfig = {
         {
             id: 2,
             name: 'Random'
+        }
+    ],
+    shapes: [
+        {
+            id: 1,
+            name: 'Rectangle'
+        },
+        {
+            id: 2,
+            name: 'Heart'
         }
     ]
 };

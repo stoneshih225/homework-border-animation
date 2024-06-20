@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { ButtonList } from '@/controllerConfig';
+import { LayoutButtonList } from '@/controllerConfig';
 
 const props = defineProps({
     buttonList: {
-        type: Array as PropType<ButtonList[]>,
+        type: Array as PropType<LayoutButtonList[]>,
         required: true
     },
     layout: {
