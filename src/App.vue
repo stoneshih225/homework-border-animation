@@ -7,6 +7,7 @@ import controllerConfig from './controllerConfig';
 
 const layout = ref<1 | 3 | 5 | 10>(1);
 const animationMode = ref<'All' | 'Random'>('All');
+const shape = ref<'Rectangle' | 'Heart'>('Rectangle');
 </script>
 
 <template>
@@ -15,16 +16,21 @@ const animationMode = ref<'All' | 'Random'>('All');
             <Main
                 :layout="layout"
                 :animationMode="animationMode"
+                :shape="shape"
             />
         </div>
         <div class="controller-container">
             <Button
                 v-model:layout="layout"
-                :buttonList="controllerConfig.buttonList"
+                :buttonList="controllerConfig.layouts"
             />
             <Radio
-                v-model:animationMode="animationMode"
-                :radioList="controllerConfig.radioList"
+                v-model:value="animationMode"
+                :radioList="controllerConfig.animationModes"
+            />
+            <Radio
+                v-model:value="shape"
+                :radioList="controllerConfig.shapes"
             />
         </div>
     </div>

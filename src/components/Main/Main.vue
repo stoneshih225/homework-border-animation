@@ -2,7 +2,7 @@
 import { PropType, computed } from 'vue';
 import getUuid from '@/utils/getUuid';
 import generateUniqueNumbers from '@/utils/generateUniqueNumbers';
-// import Box from './Box/Box.vue';
+import Box from './Box/Box.vue';
 import Heart from './Heart/Heart.vue';
 
 const props = defineProps({
@@ -12,6 +12,10 @@ const props = defineProps({
     },
     animationMode: {
         type: String as PropType<'All' | 'Random'>,
+        required: true
+    },
+    shape: {
+        type: String as PropType<'Rectangle' | 'Heart'>,
         required: true
     }
 });
@@ -45,12 +49,8 @@ const mode = computed(() => {
 
 <template>
     <div class="main-wrap">
-        <!-- <Box
-            :shapeList="shapeList"
-            :layoutStyle="layoutStyle"
-            :mode="mode"
-        /> -->
-        <Heart
+        <component
+            :is="props.shape === 'Rectangle' ? Box : Heart"
             :shapeList="shapeList"
             :layoutStyle="layoutStyle"
             :mode="mode"
