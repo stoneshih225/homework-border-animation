@@ -46,7 +46,7 @@ const mode = computed(() => {
         <div
             v-for="(box, idx) in boxList"
             :key="box.id"
-            class="box-container"
+            class="box"
             :class="[
                 layoutStyle,
                 { 'border-animation': mode === 'All' ? true : mode.includes(idx) }
