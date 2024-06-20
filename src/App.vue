@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Box from './components/Box/Box.vue';
+import Main from './components/Main/Main.vue';
 import Button from './components/Button/Button.vue';
 import Radio from './components/Radio/Radio.vue';
 import controllerConfig from './controllerConfig';
@@ -12,7 +12,7 @@ const animationMode = ref<'All' | 'Random'>('All');
 <template>
     <div class="app">
         <div class="content-container">
-            <Box
+            <Main
                 :layout="layout"
                 :animationMode="animationMode"
             />
