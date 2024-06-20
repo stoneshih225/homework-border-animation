@@ -4,6 +4,7 @@ $heart-border-width: 5px; // svg stroke width
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 1;
 
     .heart-border,
     .heart {
