@@ -7,17 +7,17 @@ const props = defineProps({
         type: Array as PropType<RadioList[]>,
         required: true
     },
-    animationMode: {
-        type: String as PropType<'All' | 'Random'>,
+    value: {
+        type: String,
         required: true
     }
 });
-const emits = defineEmits(['update:animationMode']);
+const emits = defineEmits(['update:value']);
 
-const pickedAnimationMode = computed({
-    get: () => props.animationMode,
-    set: (mode) => {
-        emits('update:animationMode', mode);
+const pickedValue = computed({
+    get: () => props.value,
+    set: (value) => {
+        emits('update:value', value);
     }
 });
 </script>
@@ -34,7 +34,7 @@ const pickedAnimationMode = computed({
                 type="radio"
                 :id="radio.name"
                 :value="radio.name"
-                v-model="pickedAnimationMode"
+                v-model="pickedValue"
             />
             <span>{{ radio.name }}</span>
         </label>
@@ -45,6 +45,7 @@ const pickedAnimationMode = computed({
 .radio-container {
     position: relative;
     display: flex;
+    margin-bottom: 1rem;
 
     .radio {
         margin-right: 0.5rem;
