@@ -9,7 +9,7 @@
 
 > Vue 3 / Vite + TypeScript 矩形與心形的走線動畫。
 
-- [線上觀看連結]()
+- [線上觀看連結](https://stoneshih225.github.io/homework-border-animation/)
 
 ## 目錄
 
