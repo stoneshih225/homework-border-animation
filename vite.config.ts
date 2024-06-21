@@ -10,6 +10,7 @@ const VITE_APP_VERSION = `${date.getFullYear().toString().padStart(4, '0')}${(da
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/homework-border-animation/',
     plugins: [
         vue(),
         eslintPlugin({ eslintOptions: { cache: false } }),
