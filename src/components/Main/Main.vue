@@ -4,6 +4,7 @@ import getUuid from '@/utils/getUuid';
 import generateUniqueNumbers from '@/utils/generateUniqueNumbers';
 import Box from './Box/Box.vue';
 import Heart from './Heart/Heart.vue';
+import FloatingStars from '../FloatingStars/FloatingStars.vue';
 
 const props = defineProps({
     layout: {
@@ -55,6 +56,7 @@ const mode = computed(() => {
             :layoutStyle="layoutStyle"
             :mode="mode"
         />
+        <FloatingStars />
     </div>
 </template>
 
