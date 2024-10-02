@@ -1,8 +1,10 @@
 {
     "words": [
         "camelcase",
+        "gsap",
         "linebreak",
         "nabla",
+        "pixi",
         "Vetur",
         "vite",
         "vuejs",

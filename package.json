@@ -12,6 +12,8 @@
         "lint": "pnpm run lint:eslint && pnpm run lint:style"
     },
     "dependencies": {
+        "gsap": "^3.12.5",
+        "pixi.js": "5.3.12",
         "vue": "^3.4.21"
     },
     "devDependencies": {
