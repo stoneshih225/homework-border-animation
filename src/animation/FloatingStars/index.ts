@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { gsap } from 'gsap';
 import { getRandomNumber } from '@/utils/getRandomNumber';
-// import { modelConfig } from '../../../modelConfig';
 
 let app: PIXI.Application;
 let removing = false; // 清空動畫
@@ -9,7 +8,7 @@ let removing = false; // 清空動畫
 const starGenerator = () => {
     const starContainer = new PIXI.Container();
     const star = new PIXI.Sprite(PIXI.Texture.from('round_star_white.png'));
-    const size = getRandomNumber(15, 30);
+    const size = window.innerWidth >= 576 ? getRandomNumber(20, 25) : getRandomNumber(15, 20);
     const speed = getRandomNumber(2, 6) / 10;
     const startX = getRandomNumber(15, app.renderer.width - 15);
     const startY = app.renderer.height;
@@ -62,7 +61,7 @@ const clearAllStars = () => {
 };
 
 const floatingStarsCanvas = (view: HTMLCanvasElement) => {
-    const { clientWidth, clientHeight } = view;
+    let { clientWidth, clientHeight } = view;
 
     app = new PIXI.Application({
         width: clientWidth,
@@ -73,22 +72,20 @@ const floatingStarsCanvas = (view: HTMLCanvasElement) => {
     });
 
     window.addEventListener('resize', () => {
+        clientWidth = view.clientWidth;
+        clientHeight = view.clientHeight;
+
         app.renderer.resize(clientWidth, clientHeight);
+        clearAllStars();
     });
 
     let count = 0;
-    // let prev = modelConfig.value.animation.isSparkleCanvasEnable;
 
     PIXI.Ticker.shared.add(() => {
-        // if (!prev) clearAllStars();
-        // prev = modelConfig.value.animation.isSparkleCanvasEnable;
-
-        // if (!prev) return;
-
         if (count === 0) {
             count += 1;
             app.stage.addChild(starGenerator());
-        } else if (count >= 50) {
+        } else if (count >= 10) {
             count = 0;
         } else count += 1;
     });
