@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { Application } from 'pixi.js';
 import floatingStarsCanvas from '@/animation/index';
 
-onMounted(() => {
-    const floatingStarsCanvasEl = document.getElementById('floatingStarsCanvas');
+const floatingStarsCanvasDom = ref<HTMLCanvasElement | null>(null);
+let app: Application | null = null;
 
-    floatingStarsCanvas(floatingStarsCanvasEl as HTMLCanvasElement);
+onMounted(() => {
+    if (floatingStarsCanvasDom.value) {
+        app = floatingStarsCanvas(floatingStarsCanvasDom.value);
+    }
+});
+onBeforeUnmount(() => {
+    if (app) {
+        app.destroy(true, { children: true });
+        app = null;
+    }
 });
 </script>
 
 <template>
     <div class="floating-stars-wrap">
         <canvas
-            id="floatingStarsCanvas"
+            ref="floatingStarsCanvasDom"
             class="floating-stars-canvas"
         />
     </div>
